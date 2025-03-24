@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call Blaster</title>
+    <title>Call Blaster - Fake Call & SMS Prank</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,23 +23,31 @@
         .container {
             padding: 20px;
         }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .feature {
+        .form-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 30%;
+            width: 50%;
+            margin: 0 auto;
         }
-        .feature h2 {
-            color: #333;
+        .form-container input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        .feature p {
-            color: #666;
+        .form-container button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #555;
         }
         footer {
             background-color: #333;
@@ -58,25 +66,44 @@
     </header>
 
     <div class="container">
-        <h2>Features</h2>
-        <div class="features">
-            <div class="feature">
-                <h2>Call Anyone</h2>
-                <p>Make prank calls to anyone with just a few clicks. Choose from a variety of funny voices and scenarios!</p>
-            </div>
-            <div class="feature">
-                <h2>SMS Prank</h2>
-                <p>Send hilarious SMS messages to your friends and family. Customize the content for maximum laughs!</p>
-            </div>
-            <div class="feature">
-                <h2>Safe & Fun</h2>
-                <p>Our service is completely safe and legal. Enjoy endless fun without any worries!</p>
-            </div>
+        <h2>Fake Call & SMS Prank</h2>
+        <div class="form-container">
+            <form id="prankForm">
+                <label for="phoneNumber">Enter Phone Number:</label><br>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="e.g., +1234567890" required><br>
+                <label for="message">Enter Message (for SMS):</label><br>
+                <input type="text" id="message" name="message" placeholder="e.g., You've won a prize!"><br>
+                <button type="submit">Start Prank</button>
+            </form>
         </div>
+        <div id="output" style="margin-top: 20px;"></div>
     </div>
 
     <footer>
         <p>&copy; 2025 Call Blaster. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('prankForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get input values
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+
+            // Display output
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <h3>Prank Details:</h3>
+                <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+                <p><strong>Message:</strong> ${message}</p>
+                <p>Prank initiated! (This is a simulation.)</p>
+            `;
+
+            // Clear form
+            document.getElementById('prankForm').reset();
+        });
+    </script>
 </body>
-  </html>
+</html>
